@@ -200,4 +200,4 @@ Wróćcie do terminala Azure Cloud Shell i wpiszcie poniższą komendę, podmien
 az group delete --name [TUTAJ_NAZWA_GRUPY_ZASOBOW] --yes --no-wait
 ```
 
-**Gratulacje!** Samodzielnie wdrożyliście i system Obserwowalności (Prometheus, Loki, Grafana), używany codziennie przez inżynierów DevOps na całym świecie.
+**Gratulacje!** Samodzielnie wdrożyliście i system Obserwowalności (Prometheus, Loki, Grafana), używany codziennie przez inżynierów DevOps na całym świecie. A teraz proszę o wypełnienie ankekty: https://forms.gle/LFNfFBsRf4F5P9RT6
