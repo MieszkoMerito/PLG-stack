@@ -70,26 +70,40 @@ Włączymy teraz skrypt, który zacznie zasypywać naszą aplikację zapytaniami
    ```
    Aby później wyjść z podglądu, użyjcie Ctrl+C.
 2. W osobnej karcie terminala sprawdźcie nazwę usługi Grafany:
-```kubectl get svc -n monitoring```
+```bash
+kubectl get svc -n monitoring
+```
 3. Uruchomcie przekierowanie portu do Grafany. Jeśli usługa nazywa się grafana, użyjcie:
-```kubectl port-forward -n monitoring svc/grafana 8080:80```
+```bash
+kubectl port-forward -n monitoring svc/grafana 8080:80
+```
 Jeśli usługa ma inną nazwę, np. kube-prometheus-stack-grafana, użyjcie:
-```kubectl port-forward -n monitoring svc/kube-prometheus-stack-grafana 8080:80```
+```bash
+kubectl port-forward -n monitoring svc/kube-prometheus-stack-grafana 8080:80
+```
 4. Otwórzcie Grafanę w przeglądarce:
 `http://localhost:8080`
 Jeśli pracujecie w Azure Cloud Shell, użyjcie opcji Web Preview / Open port 8080.
 5. Login do Grafany to najczęściej:
 admin
 Hasło odczytajcie z sekretu Kubernetes. Najpierw sprawdźcie dostępne sekrety:
-```kubectl get secrets -n monitoring```
+```bash
+kubectl get secrets -n monitoring
+```
 Następnie odczytajcie hasło, np.:
-```kubectl get secret grafana -n monitoring -o jsonpath="{.data.admin-password}" | base64 -d```
+```bash
+kubectl get secret grafana -n monitoring -o jsonpath="{.data.admin-password}" | base64 -d
+```
 Jeśli sekret nazywa się kube-prometheus-stack-grafana, użyjcie:
-```kubectl get secret kube-prometheus-stack-grafana -n monitoring -o jsonpath="{.data.admin-password}" | base64 -d```
+```bash
+kubectl get secret kube-prometheus-stack-grafana -n monitoring -o jsonpath="{.data.admin-password}" | base64 -d
+```
 6. W Grafanie otwórzcie dashboard:
 Kubernetes / Compute Resources / Namespace (Pods)
 7. Wróćcie do terminala i uruchomcie generator ruchu:
-```kubectl scale deployment load-generator --replicas=1```
+```bash
+kubectl scale deployment load-generator --replicas=1
+```
 
 ### Zadanie 2.2: Wygłodzenie maszyny (Node Starvation)
 Obserwujcie terminal i Grafanę. Obciążenie procesora (CPU) wystrzeli w kosmos (ponad 100%). Kubernetes zacznie ratować sytuację, tworząc nowe kopie aplikacji (zobaczycie, że liczba Podów wzrośnie np. z 1 do 5).
