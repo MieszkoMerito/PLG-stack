@@ -67,8 +67,10 @@ Włączymy teraz skrypt (generator ruchu), który zacznie zasypywać naszą apli
    kubectl get hpa -w
    ```
 2. Otwórzcie nową kartę w przeglądarce i zalogujcie się do Waszej **Grafany** (adres IP usługi znajdziecie wpisując `kubectl get svc -n monitoring`).
-3. W Grafanie otwórzcie panel (dashboard) o nazwie: **Kubernetes / Compute Resources / Namespace (Pods)**.
-4. Wróćcie do terminala, otwórzcie drugą kartę (lub wyjdźcie z podglądu HPA przez `Ctrl+C`) i odpalcie atak:
+3. Hasło jest generowane autoamtycznie, odczytasz je za pomoca:
+kubectl get secret grafana -n svc -o jsonpath="{.data.admin-password}" | base64 -d
+4. W Grafanie otwórzcie panel (dashboard) o nazwie: **Kubernetes / Compute Resources / Namespace (Pods)**.
+5. Wróćcie do terminala, otwórzcie drugą kartę (lub wyjdźcie z podglądu HPA przez `Ctrl+C`) i odpalcie atak:
    ```bash
    kubectl scale deployment load-generator --replicas=1
    ```
