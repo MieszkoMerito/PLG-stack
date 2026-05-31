@@ -38,7 +38,7 @@ Sprawdźcie, czy macie połączenie, wpisując: `kubectl get nodes`.
 
 ## Część 1: Naprawa aplikacji testowej
 
-Nasza aplikacja, która ma udawać duże obciążenie matematyczne, ma błędy w początkowej konfiguracji. Musimy podmienić jej kod na prawidłowy i naprawić porty sieciowe, żeby generator ruchu mógł w nią "trafić".
+Nasza aplikacja, która ma udawać duże obciążenie matematyczne, ma błędy w początkowej konfiguracji. Musimy podmienić jej kod na prawidłowy i naprawić porty sieciowe, żeby generator ruchu mógł w nią "trafić". Zalecam korzystać z Bash w konsoli Azure
 
 Proszę wykonać w terminalu poniższe komendy:
 
