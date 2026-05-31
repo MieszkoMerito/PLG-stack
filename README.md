@@ -67,6 +67,7 @@ Włączymy teraz skrypt (generator ruchu), który zacznie zasypywać naszą apli
    kubectl get hpa -w
    ```
 2. Otwórzcie nową kartę w przeglądarce i zalogujcie się do Waszej **Grafany** (adres IP usługi znajdziecie wpisując `kubectl get svc -n monitoring`).
+Ponieważ cluster nie ma publicznego IP należy zrobić forward portu na localhost wpisując `kubectl port-forward svc/monitoring-grafana 8080:80 -n monitoring` dzięki temu grafana będzie dostępna pod adresem `localhost:8080`.
 3. W Grafanie otwórzcie panel (dashboard) o nazwie: **Kubernetes / Compute Resources / Namespace (Pods)**.
 4. Wróćcie do terminala, otwórzcie drugą kartę (lub wyjdźcie z podglądu HPA przez `Ctrl+C`) i odpalcie atak:
    ```bash
